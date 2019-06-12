@@ -1,10 +1,10 @@
 const Express = require("express");
-const bodyParser = require('body-parser');
-
+const bodyparser = require('body-parser');
+const querystring = require('querystring');
 const app = Express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.json());
 
 
 app.get('/', function(req, res){
@@ -12,6 +12,9 @@ app.get('/', function(req, res){
 });
 
 app.get('/home', function(req, res){
+  let query = req.query.data;
+  let query2 = req.query.date;
+  console.log('query data  = ' + query + ' querty date = ' + query2);
   res.send('consuming /home page');
 });
 
