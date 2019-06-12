@@ -18,6 +18,13 @@ app.get('/home', function(req, res){
   res.send('consuming /home page');
 });
 
+app.route('/usuario')
+  .get(function(req,res){
+    res.send('respuesta desde usuario.get');
+  })
+  .post(function(req,res){
+    res.send('respuesta desde usuario.post');
+  });
 app.use(function(req, res, next) {
  respuesta = {
   error: true,
