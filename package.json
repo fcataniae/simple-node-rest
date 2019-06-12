@@ -1,0 +1,24 @@
+{
+  "name": "simple-node-rest",
+  "version": "0.0.1-beta",
+  "description": "Simple rest service build w nodejs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/fcataniae/simple-node-rest.git"
+  },
+  "author": "Franco Catania",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fcataniae/simple-node-rest/issues"
+  },
+  "homepage": "https://github.com/fcataniae/simple-node-rest#readme",
+  "dependencies": {
+    "http": "0.0.0",
+    "httpdispatcher": "^2.1.2"
+  }
+}
