@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/fcataniae/simple-node-rest#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
     "http": "0.0.0",
     "httpdispatcher": "^2.1.2"
   }

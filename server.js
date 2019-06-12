@@ -1,47 +1,30 @@
-// require the http module of node.js
-var http = require('http');
-// require the dispatcher module
-var HttpDispatcher = require('httpdispatcher');
-var dispatcher = new HttpDispatcher();
-console.log(dispatcher);
-// define the port of access for your server
-const PORT = 8080;
+const Express = require("express");
+const bodyParser = require('body-parser');
 
-// We need a function which handles requests and send response
-function handleRequest(request, response){
-    try {
-        // log the request on console
-        console.log(request.url);
-        // Dispatch
-        dispatcher.dispatch(request, response);
-    } catch(err) {
-        console.log(err);
-    }
-}
+const app = Express();
 
-// Create a server
-var myFirstServer = http.createServer(handleRequest);
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-// add some routes
 
-//A sample GET request
-dispatcher.onGet("/", function(req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end('<h1>Hey, this is the homepage of your server</h1>');
+app.get('/', function(req, res){
+  res.send('consuming main page');
 });
 
-dispatcher.onGet("/welcome", function(req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('Welcome homepage');
+app.get('/home', function(req, res){
+  res.send('consuming /home page');
 });
 
-dispatcher.onError(function(req, res) {
-    res.writeHead(404);
-    res.end("Error, the URL doesn't exist");
+app.use(function(req, res, next) {
+ respuesta = {
+  error: true,
+  codigo: 404,
+  mensaje: 'URL no encontrada'
+ };
+ res.status(404).send(respuesta);
 });
 
-// Start the server !
-myFirstServer.listen(PORT, function(){
-    // Callback triggered when server is successfully listening. Hurray!
-    console.log("Server listening on: http://localhost:%s", PORT);
+
+app.listen(3000, () => {
+ console.log("El servidor está inicializado en el puerto 3000");
 });
