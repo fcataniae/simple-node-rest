@@ -3,8 +3,8 @@ module.exports = function (){
   const amqplib = require('amqplib');
   this.channel = null;
 
-  this.init = function(){
-    return require('amqplib').connect('amqp://localhost')
+  this.init = function(config){
+    return require('amqplib').connect('amqp://'+config.rabbitHost)
         .then(conn => conn.createChannel())
         .then(ch => {
             channel = ch;

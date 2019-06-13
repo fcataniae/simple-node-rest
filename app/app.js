@@ -8,7 +8,12 @@ const fs = require('fs');
 const multer  = require('multer');
 const __DIR = 'uploads/';
 const upload = multer({ dest: __DIR });
-rabbitools.channel =  rabbitools.init();
+const config = require('./../config.json');
+
+
+console.log(config);
+rabbitools.channel =  rabbitools.init(config);
+
 
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
@@ -20,7 +25,7 @@ app.get('/', function(req, res){
 
 
 
-app.route('/usuario')
+app.route('/upload')
   .get(function(req,res){
     let query = req.query.data;
     let query2 = req.query.date;
@@ -43,6 +48,6 @@ app.use(function(req, res, next) {
 });
 
 
-app.listen(3000, () => {
- console.log("El servidor está inicializado en el puerto 3000");
+app.listen(config.serverPort, () => {
+ console.log('El servidor está inicializado en el puerto %d',config.serverPort);
 });

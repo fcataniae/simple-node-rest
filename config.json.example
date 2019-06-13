@@ -1,0 +1,5 @@
+{
+  "rabbitPort": 5672,
+  "rabbitHost": "localhost",
+  "serverPort": 8080
+}
