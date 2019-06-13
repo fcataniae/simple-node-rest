@@ -3,6 +3,7 @@
 ## Pre-requisites
 
 * Node JS installed
+* RabbitMQ installed
 * git client installed
 
 ## Excecution
