@@ -19,8 +19,8 @@
   "homepage": "https://github.com/fcataniae/simple-node-rest#readme",
   "dependencies": {
     "amqplib": "^0.5.3",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "http": "0.0.0",
     "httpdispatcher": "^2.1.2",
     "multer": "^1.4.1"
